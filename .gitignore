@@ -36,3 +36,5 @@
 ./debug/
 ./Debug/
 Debug/
+.vs/
+Generated Files/
