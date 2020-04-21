@@ -34,3 +34,4 @@
 #Ignore folders build by Visual Studio
 ./vs
 ./debug
+./Debug
