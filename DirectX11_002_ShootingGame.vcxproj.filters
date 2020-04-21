@@ -8,13 +8,13 @@
       <UniqueIdentifier>0ad056fc-0eb7-4ae3-8821-bb20f750ed5b</UniqueIdentifier>
       <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
     </Filter>
-	<Filter Include="내용">
+    <Filter Include="내용">
       <UniqueIdentifier>0d849a79-0239-45b4-b0e6-7d99befabe12</UniqueIdentifier>
     </Filter>
     <ClInclude Include="Common\DirectXHelper.h">
       <Filter>공용</Filter>
     </ClInclude>
-	<ClInclude Include="Common\StepTimer.h">
+    <ClInclude Include="Common\StepTimer.h">
       <Filter>공용</Filter>
     </ClInclude>
     <ClInclude Include="Common\DeviceResources.h">
@@ -23,7 +23,7 @@
     <ClCompile Include="Common\DeviceResources.cpp">
       <Filter>공용</Filter>
     </ClCompile>
-	<ClInclude Include="Content\Sample3DSceneRenderer.h">
+    <ClInclude Include="Content\Sample3DSceneRenderer.h">
       <Filter>내용</Filter>
     </ClInclude>
     <ClInclude Include="Content\SampleFpsTextRenderer.h">
@@ -32,13 +32,13 @@
     <ClInclude Include="Content\ShaderStructures.h">
       <Filter>내용</Filter>
     </ClInclude>
-	<ClCompile Include="Content\Sample3DSceneRenderer.cpp">
+    <ClCompile Include="Content\Sample3DSceneRenderer.cpp">
       <Filter>내용</Filter>
     </ClCompile>
     <ClCompile Include="Content\SampleFpsTextRenderer.cpp">
       <Filter>내용</Filter>
     </ClCompile>
-	<FxCompile Include="Content\SamplePixelShader.hlsl">
+    <FxCompile Include="Content\SamplePixelShader.hlsl">
       <Filter>내용</Filter>
     </FxCompile>
     <FxCompile Include="Content\SampleVertexShader.hlsl">
@@ -62,5 +62,39 @@
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
       <Filter>자산</Filter>
     </Image>
+    <Filter Include="Control">
+      <UniqueIdentifier>{ee0a7595-8387-4f49-8942-cd2d3f555c9b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DirectX11_002_ShootingGameMain.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="MoveLookController.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DirectX11_002_ShootingGameMain.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="MoveLookController.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXSample.h">
+      <Filter>공용</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>자산</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DirectXPage.xaml" />
   </ItemGroup>
 </Project>

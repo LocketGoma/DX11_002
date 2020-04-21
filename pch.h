@@ -14,4 +14,19 @@
 #include <agile.h>
 #include <concrt.h>
 #include <collection.h>
+
+//#include <xaudio2.h>
+//#include <xaudio2fx.h>
+
+#include <mmreg.h>
+#include <mfidl.h>
+#include <mfapi.h>
+#include <mfreadwrite.h>
+
+#include <cstdio>
+#include <vector>
+
+#include <ppltasks.h>
+
+
 #include "App.xaml.h"
