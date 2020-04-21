@@ -32,6 +32,6 @@
 *.app
 
 #Ignore folders build by Visual Studio
-./vs
-./debug
-./Debug
+./vs/
+./debug/
+./Debug/
