@@ -139,3 +139,11 @@ void DirectX11_002_ShootingGameMain::OnDeviceRestored()
 	m_fpsTextRenderer->CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();
 }
+
+//+ 발사, 움직임 등 입력 처리에 따른 행동 지시.
+void DirectX11_002_ShootingGameMain::UpdateDynamics() {
+
+
+
+
+}

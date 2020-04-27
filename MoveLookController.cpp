@@ -783,7 +783,7 @@ void MoveLookController::UpdatePollingDevices()
 }
 
 //----------------------------------------------------------------------
-// Turn on mouse cursor, which also disables relative mouse movement tracking.
+// 마우스 커서 안쓸건데 없어도 되지 않냐?
 void MoveLookController::ShowCursor()
 {
 	if (m_dispatcher != nullptr)
@@ -792,7 +792,7 @@ void MoveLookController::ShowCursor()
 		// This is needed for XAML updates in a XAML app.
 		m_dispatcher->RunAsync(
 			CoreDispatcherPriority::Normal,
-			ref new DispatchedHandler([this]()
+			ref new DispatchedHandler([]()
 				{
 					CoreWindow::GetForCurrentThread()->PointerCursor = ref new CoreCursor(CoreCursorType::Arrow, 0);
 				})
@@ -810,9 +810,6 @@ void MoveLookController::ShowCursor()
 	}
 }
 
-//----------------------------------------------------------------------
-
-// Turn mouse cursor off (hidden), which also enables relative mouse movement tracking.
 void MoveLookController::HideCursor()
 {
 	if (m_dispatcher != nullptr)
@@ -821,7 +818,7 @@ void MoveLookController::HideCursor()
 		// This is needed for XAML updates in a XAML app.
 		m_dispatcher->RunAsync(
 			CoreDispatcherPriority::Normal,
-			ref new DispatchedHandler([this]()
+			ref new DispatchedHandler([]()
 				{
 					CoreWindow::GetForCurrentThread()->PointerCursor = nullptr;
 				})

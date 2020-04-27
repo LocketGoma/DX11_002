@@ -30,6 +30,7 @@ namespace DirectX11_002_ShootingGame
 		void ProcessInput();
 		void Update();
 		bool Render();
+		void UpdateDynamics();
 
 		// 디바이스 리소스에 대한 캐시된 포인터입니다.
 		std::shared_ptr<DX::DeviceResources> m_deviceResources;
@@ -46,5 +47,8 @@ namespace DirectX11_002_ShootingGame
 
 		// 현재 입력 포인터 위치를 추적합니다.
 		float m_pointerLocationX;
+
+		// 내부 부착 컨트롤 함수 등.
+
 	};
 }
