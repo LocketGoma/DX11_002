@@ -56,15 +56,15 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 		&m_constantBufferData.projection,
 		XMMatrixTranspose(perspectiveMatrix * orientationMatrix)
 		);
-
-	// 시선은 y축을 따라 업 벡터가 있는 상태로 점 (0,-0.1,0)를 보며 (0,0.7,1.5)에 있습니다.
+	// 시선 / 카메라 부분
+	// 시선은 y축을 따라 업 벡터가 있는 상태로 점 (0,-0.1,0)를 보며 (0,0.7,1.5) -> (0,0.2,0.5)에 있습니다.
 	static const XMVECTORF32 eye = { 0.0f, 0.7f, 1.5f, 0.0f };
 	static const XMVECTORF32 at = { 0.0f, -0.1f, 0.0f, 0.0f };
 	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 0.0f };
 
 	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
 }
-
+//이게 회전부인가
 // 프레임당 한 번 호출됩니다. 큐브를 회전하고 모델 및 뷰 매트릭스를 계산합니다.
 void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 {
@@ -92,6 +92,7 @@ void Sample3DSceneRenderer::StartTracking()
 }
 
 // 추적할 때 3D 큐브는 화면 출력 너비에 상대적인 포인터 위치를 추적하여 Y축을 중심으로 회전할 수 있습니다.
+//상대적인 포인터 위치?
 void Sample3DSceneRenderer::TrackingUpdate(float positionX)
 {
 	if (m_tracking)
@@ -239,16 +240,18 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 	auto createCubeTask = (createPSTask && createVSTask).then([this] () {
 
 		// 메시 꼭짓점을 로드합니다. 각 꼭짓점은 위치 및 색을 가지고 있습니다.
+		// 사각 메시 랜더링 파트
+		// "축" 은 다른곳에 있음!
 		static const VertexPositionColor cubeVertices[] = 
 		{
-			{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f)},
-			{XMFLOAT3(-0.5f, -0.5f,  0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)},
-			{XMFLOAT3(-0.5f,  0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)},
-			{XMFLOAT3(-0.5f,  0.5f,  0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)},
-			{XMFLOAT3( 0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
-			{XMFLOAT3( 0.5f, -0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)},
-			{XMFLOAT3( 0.5f,  0.5f, -0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)},
-			{XMFLOAT3( 0.5f,  0.5f,  0.5f), XMFLOAT3(1.0f, 1.0f, 1.0f)},
+			{XMFLOAT3(-0.05f, -0.05f, -0.05f), XMFLOAT3(0.0f, 0.0f, 0.0f)},
+			{XMFLOAT3(-0.05f, -0.05f,  0.05f), XMFLOAT3(0.0f, 0.0f, 1.0f)},
+			{XMFLOAT3(-0.05f,  0.05f, -0.05f), XMFLOAT3(0.0f, 1.0f, 0.0f)},
+			{XMFLOAT3(-0.05f,  0.05f,  0.05f), XMFLOAT3(0.0f, 1.0f, 1.0f)},
+			{XMFLOAT3( 0.05f, -0.05f, -0.05f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
+			{XMFLOAT3( 0.05f, -0.05f,  0.05f), XMFLOAT3(1.0f, 0.0f, 1.0f)},
+			{XMFLOAT3( 0.05f,  0.05f, -0.05f), XMFLOAT3(1.0f, 1.0f, 0.0f)},
+			{XMFLOAT3( 0.05f,  0.05f,  0.05f), XMFLOAT3(1.0f, 1.0f, 1.0f)},
 		};
 
 		D3D11_SUBRESOURCE_DATA vertexBufferData = {0};
