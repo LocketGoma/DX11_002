@@ -83,6 +83,9 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 void Sample3DSceneRenderer::Rotate(float radians)
 {
 	// 업데이트된 모델 매트릭스를 셰이더에 전달하도록 준비합니다.
+	//XMMatrixTranspose : 전치 행렬 ( (A)T, 행/열 변환 행렬) 계산 함수.
+	//XMMatrix : 4x4 벡터 행렬. (https://docs.microsoft.com/en-us/windows/win32/api/directxmath/ns-directxmath-xmmatrix)
+	//
 	XMStoreFloat4x4(&m_constantBufferData.model, XMMatrixTranspose(XMMatrixRotationY(radians)));
 }
 
